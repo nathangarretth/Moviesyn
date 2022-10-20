@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'img/logo/Msyn.ico' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Sign in</title>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+</head>
+
+<body style="/*background: url(&quot;design.jpg&quot;);*/background-position: 0 -60px;">
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span style="color: var(--bs-danger);font-size: 24px;">Moviesyn</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul><a class="btn btn-primary shadow" role="button" href="/join" style="background: var(--bs-danger);border-color: var(--bs-danger);">Sign up</a>
+            </div><a href="/signin"> or Sign in</a>
+        </div>
+    </nav>
+    <section class="py-5 mt-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="fw-bold" style="padding-bottom: 0px;margin-bottom: -15px;">Sign in</h2>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div>
+                        <form class="p-3 p-xl-4" action="/signin" method="post">
+                        {% csrf_token %}
+                            <div class="mb-3"><input type="text" class="form-control" id="username" name="username" placeholder="username" Required></div>
+                            <div class="mb-3"><input type="password" class="form-control" id="pass1" name="pass1" placeholder="password" Required></div>
+                            <div class="mb-3"></div>
+                            <div><button class="btn btn-primary shadow d-block w-100" type="submit" style="background: var(--bs-danger);border-color: var(--bs-danger);">Sign in</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark">
+        <div class="container py-4 py-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 fw-bold">Sources</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Engine</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 fw-bold">About</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0"></p>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bold-and-dark.js' %}"></script>
+</body>
+
+</html>

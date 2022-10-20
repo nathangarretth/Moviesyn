@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'img/logo/Msyn.ico' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Moviesyn</title>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+</head>
+
+<body style="background: #27262e;">
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span style="color: var(--bs-danger);font-size: 24px;">Moviesyn</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul><a class="btn btn-primary shadow" role="button" href="/join" style="background: var(--bs-danger);border-color: var(--bs-danger);">Sign up</a>
+            </div><a href="/signin"> or Sign in</a>
+        </div>
+    </nav>
+    
+    <header class="bg-dark pt-5">
+        <div class="container pt-4 pt-xl-5">
+            <div class="row pt-5" style="margin-bottom: -55px;">
+                <div class="col-md-8 col-xl-7 text-center text-md-start mx-auto">
+
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <strong>Message:</strong> {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    {% endfor %}
+
+                    {% if user.is_authenticated %}
+                    <h3> Hello {{ usrname }}</h3>
+                    <h4> You have been logged in.<br></h4>
+                    <a class="btn btn-primary shadow" role="button" type="submit" href="/signout" style="background: var(--bs-danger);border-color: var(--bs-danger);">Sign out</a>
+                    {% else %}
+                    {% endif %}
+
+                    <div class="text-center"><h1 class="fw-bold" style="font-size:70px;">Everyone has their favorite movies...</h1><p class="fw-bold" style="color: var(--bs-gray-500); font-size:20px;">(Here are some of our favorites!)</p></div>
+                </div>
+                <div class="col-12 col-lg-10 mx-auto">
+                    <div class="position-relative" style="display: flex;flex-wrap: wrap;justify-content: flex-end;padding-bottom: 181px;padding-top: 0px;margin-top: -125px;margin-bottom: -281px;">
+                        {% load static %}
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.8" src="{% static 'img/movies/whiplash.jpg' %}"></div>
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.4" src="{% static 'img/movies/matrix.jpg' %}" /></div>
+                        <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.25" src="{% static 'img/movies/godfather.jpg' %}" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="py-5" style="background: #27262e;margin-bottom: -100px;">
+        <div class="container text-center py-5"><h1 class="fw-bold" style="font-size:60px;">Finding your next favorite film can be difficult, but it doesn't have to be.</h1><p class="fw-bold" style="color: var(--bs-gray-500); font-size:20px;">Personalized movie recommendations, for our users.</p></div>
+    </section>
+    <section style="background: #27262e;">
+        <div class="container bg-dark py-5" style="margin-top: 0px;">
+            <div class="row" style="padding-top: 25px;">
+                <div class="col-md-8 col-xl-6 text-center mx-auto"><h1 class="fw-bold" style="font-size:76px; color: var(--bs-danger);">Moviesyn</h1>
+                    <h3 class="fw-bold">A user-friendly method to find your new favorite movies.</h3>
+                </div>
+            </div>
+            <div class="py-5 p-lg-5">
+                <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                    <div class="col-xl-12 mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5" style="text-align: left;">
+                                <div class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon" style="top: 1rem;right: 1rem;position: absolute;">
+                                        <path fill-rule="evenodd" d="M0 10.5A1.5 1.5 0 0 1 1.5 9h1A1.5 1.5 0 0 1 4 10.5v1A1.5 1.5 0 0 1 2.5 13h-1A1.5 1.5 0 0 1 0 11.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10.5.5A1.5 1.5 0 0 1 13.5 9h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM6 4.5A1.5 1.5 0 0 1 7.5 3h1A1.5 1.5 0 0 1 10 4.5v1A1.5 1.5 0 0 1 8.5 7h-1A1.5 1.5 0 0 1 6 5.5v-1zM7.5 4a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"></path>
+                                        <path d="M6 4.5H1.866a1 1 0 1 0 0 1h2.668A6.517 6.517 0 0 0 1.814 9H2.5c.123 0 .244.015.358.043a5.517 5.517 0 0 1 3.185-3.185A1.503 1.503 0 0 1 6 5.5v-1zm3.957 1.358A1.5 1.5 0 0 0 10 5.5v-1h4.134a1 1 0 1 1 0 1h-2.668a6.517 6.517 0 0 1 2.72 3.5H13.5c-.123 0-.243.015-.358.043a5.517 5.517 0 0 0-3.185-3.185z"></path>
+                                    </svg></div>
+                                <h5 class="fw-bold card-title">What is Moviesyn?</h5>
+                                <p class="text-muted card-text mb-4">Moviesyn is a movie recommendation engine that utilizes collaborative filtering. We plan to open-source the engine later in development.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5" style="text-align: left;">
+                                <div class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon" style="top: 1rem;right: 1rem;position: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bezier text-success">
+                                        <path fill-rule="evenodd" d="M0 10.5A1.5 1.5 0 0 1 1.5 9h1A1.5 1.5 0 0 1 4 10.5v1A1.5 1.5 0 0 1 2.5 13h-1A1.5 1.5 0 0 1 0 11.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10.5.5A1.5 1.5 0 0 1 13.5 9h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM6 4.5A1.5 1.5 0 0 1 7.5 3h1A1.5 1.5 0 0 1 10 4.5v1A1.5 1.5 0 0 1 8.5 7h-1A1.5 1.5 0 0 1 6 5.5v-1zM7.5 4a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"></path>
+                                        <path d="M6 4.5H1.866a1 1 0 1 0 0 1h2.668A6.517 6.517 0 0 0 1.814 9H2.5c.123 0 .244.015.358.043a5.517 5.517 0 0 1 3.185-3.185A1.503 1.503 0 0 1 6 5.5v-1zm3.957 1.358A1.5 1.5 0 0 0 10 5.5v-1h4.134a1 1 0 1 1 0 1h-2.668a6.517 6.517 0 0 1 2.72 3.5H13.5c-.123 0-.243.015-.358.043a5.517 5.517 0 0 0-3.185-3.185z"></path>
+                                    </svg></div>
+                                <h5 class="fw-bold card-title">Movies tailored to your taste.</h5>
+                                <p class="text-muted card-text mb-4">Moviesyn helps you find movies that could be your next favorites. Build a profile based on your current favorites, and let Moviesyn do the rest.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 mb-5">
+                        <div class="card shadow-sm">
+                            <div class="card-body px-4 py-5 px-md-5" style="text-align: left;">
+                                <div class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon" style="top: 1rem;right: 1rem;position: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bell text-success">
+                                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"></path>
+                                    </svg></div>
+                                <h5 class="fw-bold card-title">When can I get access?</h5>
+                                <p class="text-muted card-text mb-4">While the project is under development, you can join the closed beta by signing up. We will email you for access to the project. Moviesyn is planned to be completed in May of 2023.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section></section>
+    <section class="py-5" style="margin-top: -150px;">
+        <div class="container">
+            <div class="row mb-5" style="padding-top: 50px;">
+                <div class="col-md-8 col-xl-6 text-center mx-auto" style="padding-right: 0px;padding-left: 0px;"><h2 class="fw-bold" style="font-size:60px;">Interested? Join here.</h2><h2 class="fw-bold" style="font-size:12px;"><br><br></h2><a class="btn btn-primary shadow" role="button" href="/join" style="background: var(--bs-danger);border-color: var(--bs-danger);">Sign up</a></div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark">
+        <div class="container py-4 py-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 fw-bold">Sources</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Engine</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 fw-bold">About</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0"></p>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bold-and-dark.js' %}"></script>
+</body>
+
+</html>
